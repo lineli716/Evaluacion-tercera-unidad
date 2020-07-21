@@ -1,0 +1,93 @@
+using System;
+					
+public class Program
+{
+	static string [,] agenda = new string [ 4,12];
+	public static void Main()
+	{
+		int op;
+		char menu='n';
+		string usuario= "contacto  no encontrado";
+		string buscar= "";
+		string linea="";
+		
+		while (menu!='s')
+		{
+			
+			try
+			{ 
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("1.Crear contacto");
+			Console.WriteLine("2.Ver contactos");
+			Console.WriteLine("3.Buscar Contactos");
+			Console.WriteLine("4.salir");
+		
+				
+		    }
+			catch
+			{	 
+			 Console.WriteLine("--------------------------");
+			Console.WriteLine("1.Crear contacto");
+			Console.WriteLine("2.Ver contactos");
+			Console.WriteLine("3.Buscar Contactos");
+			Console.WriteLine("4.salir");
+		
+			  
+			}
+			
+			linea=Console.ReadLine();
+			op=int.Parse(linea);
+			
+			
+		  if (op == 1)
+		   {    
+			 Console.WriteLine("--------------------------\n");
+		     for (int f=0; f<12; f++)
+			  {
+			    Console.Write("Ingrese el nombre:  ");
+			    agenda[0, f]= Console.ReadLine();
+			
+			    Console.Write("Ingrese el Apellidp:  ");
+			    agenda[1, f]= Console.ReadLine();
+			
+			    Console.Write("Ingrese el Direccion:  ");
+			    agenda[2, f]= Console.ReadLine();
+			
+			    Console.Write("Ingrese el Telefono:  ");
+			    agenda[3, f]= Console.ReadLine();
+			
+			  } 
+		  }
+		 if (op == 2)
+		  { 	 
+			 
+			  for (int f=0; f<12; f++)
+			   {  
+		
+				Console.WriteLine(agenda[0, f]+ "------"+agenda[1, f]+"------"+agenda[2, f]+"------"+agenda[3, f]);
+				
+			   }
+			  Console.WriteLine("--------------------------\n");
+	      }	
+		if(op == 3)
+		  {	
+			Console.WriteLine("Ingrese el nombre a buscar:   ");
+			buscar= Console.ReadLine();
+			
+			  for (int f=0; f<12; f++)
+			     {
+				    if (buscar==agenda [0, f])
+					  {
+					   usuario= agenda[0, f]+ "------"+agenda[1, f]+"------"+agenda[2, f]+"------"+agenda[3, f];
+					  }
+			     }
+		   }
+	   if (op == 4)
+			{
+				  Console.WriteLine(" desea salir [s / n] ");
+                  menu = char.Parse(Console.ReadLine());
+			}		
+			Console.WriteLine(usuario);		
+		}	
+	}
+}
